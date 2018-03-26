@@ -26,7 +26,7 @@ public class Loot : MonoBehaviour {
         {
             Debug.Log("collision");
             lc.AddLootPoints(lootValue);
-            Instantiate(particle);
+            Instantiate(particle, transform.position, Quaternion.identity);
         }
     }
 }
