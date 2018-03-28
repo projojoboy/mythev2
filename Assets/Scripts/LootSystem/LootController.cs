@@ -18,7 +18,7 @@ public class LootController : MonoBehaviour {
 	}
 
     public void AddLootPoints(int amountLootToAdd)
-    {
+    { 
         amountLootCurrentRun += amountLootToAdd;
         Debug.Log(amountLootCurrentRun);
     }
