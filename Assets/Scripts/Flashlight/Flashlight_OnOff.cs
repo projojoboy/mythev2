@@ -19,7 +19,7 @@ public class Flashlight_OnOff : MonoBehaviour {
 	
 
 	void Update () {
-		if (device.GetPressDown(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger )){
+		if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger )){
 			Debug.Log ("Up");
 			if (isActive == false) {
 				Flashlight.enabled = true;
