@@ -14,19 +14,15 @@ public class Loot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lc = GameObject.Find("GameController").GetComponent<LootController>();
+        currentParticle = particle500;
         CheckValue();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     private void OnTriggerEnter(Collider coll)
     {
         if(coll.tag == "Moneybag")
         {
-            Debug.Log("collision");
+            Debug.Log("Collision");
             lc.AddLootPoints(lootValue);
             Instantiate(currentParticle, transform.position, Quaternion.identity);
         }
@@ -34,31 +30,32 @@ public class Loot : MonoBehaviour {
 
     void CheckValue()
     {
-        
-        if(lootValue <= 49 || lootValue >= 51 && lootValue <= 75)
+        Debug.Log("Start");
+        if(lootValue <= 50 || lootValue >= 51 && lootValue <= 75)
         {
             lootValue = 50;
             currentParticle = particle50;
         }
-        else if (lootValue >= 75 && lootValue <= 99 || lootValue >= 101 && lootValue <= 150)
+        else if (lootValue >= 75 && lootValue <= 100 || lootValue >= 101 && lootValue <= 150)
         {
             lootValue = 100;
             currentParticle = particle100;
         }
-        else if (lootValue >= 151 && lootValue <= 199 || lootValue >= 201 && lootValue <= 225)
+        else if (lootValue >= 151 && lootValue <= 200 || lootValue >= 201 && lootValue <= 225)
         {
             lootValue = 200;
             currentParticle = particle200;
         }
-        else if (lootValue >= 226 && lootValue <= 249 || lootValue >= 251 && lootValue <= 375)
+        else if (lootValue >= 226 && lootValue <= 250 || lootValue >= 251 && lootValue <= 375)
         {
             lootValue = 250;
             currentParticle = particle250;
         }
-        else if (lootValue >= 376 && lootValue <= 499 || lootValue >= 501)
+        else if (lootValue >= 376 && lootValue <= 500 || lootValue >= 501)
         {
             lootValue = 500;
             currentParticle = particle500;
         }
+        Debug.Log("Stop");
     }
 }
