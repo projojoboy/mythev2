@@ -48,6 +48,6 @@ public class Flashlight_OnOff : MonoBehaviour {
 
 				//audioSource.PlayOneShot (soundOff);
 			}
-		}*/
+		}
 	}
 }*/

@@ -14946,6 +14946,8 @@ GameObject:
   - component: {fileID: 1921587175}
   - component: {fileID: 1921587174}
   - component: {fileID: 1921587173}
+  - component: {fileID: 1921587178}
+  - component: {fileID: 1921587177}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -15019,6 +15021,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1921587177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1921587172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1921587178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1921587172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1485d8e32243af4a8b94f012bb5bfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 1921587177}
+  isUsable: 1
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 7
+  allowedUseControllers: 0
+  usingState: 0
+  bol: {fileID: 1070691301535976, guid: a7324d7de7daa924b8766542c4fa93a4, type: 2}
 --- !u!1 &1922583030
 GameObject:
   m_ObjectHideFlags: 0
@@ -17174,8 +17218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e06008819af15b4eb28d9f5f980ad7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goal: {x: 0, y: 1.62, z: -0.93}
-  _target: {fileID: 0}
+  target: {fileID: 0}
+  goal: {x: 0, y: 0, z: 0}
+  _state: 0
+  _goalRange: 5
+  _targetReachedTime: 0
 --- !u!64 &2105402508
 MeshCollider:
   m_ObjectHideFlags: 0
