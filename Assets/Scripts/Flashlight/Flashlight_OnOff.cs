@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 public class Flashlight_OnOff : MonoBehaviour {
 	/*private SteamVR_Controller.Device device;
 	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }*/
+	private VRTK_ControllerEvents;
 	private SteamVR_TrackedController device;
 	public Light Flashlight;
 	//public AudioSource audioSource;
@@ -17,7 +18,7 @@ public class Flashlight_OnOff : MonoBehaviour {
 
 
 	void Start () {
-		device = GetComponent<SteamVR_TrackedController>();
+		device = GetComponent<VRTK_ControllerEvents.TriggerClicked>;
 		isActive = true;
 		device.TriggerClicked += OnOff;
 	}
