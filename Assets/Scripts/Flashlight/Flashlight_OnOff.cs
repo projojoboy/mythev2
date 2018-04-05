@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Flashlight_OnOff : MonoBehaviour {
 	private SteamVR_Controller.Device device;
-	//private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 	private SteamVR_TrackedObject trackedObj;
 	public Light Flashlight;
 	//public AudioSource audioSource;
@@ -22,7 +23,7 @@ public class Flashlight_OnOff : MonoBehaviour {
 	
 
 	void Update () {
-		if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger )){
+		if (device.GetHairTrigger()){
 			Debug.Log ("Up");
 			if (isActive == false) {
 				Flashlight.enabled = true;
