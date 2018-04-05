@@ -21,14 +21,14 @@ public class Flashlight_OnOff : MonoBehaviour {
         isActive = true;
         //device.TriggerClicked += OnOff;
     }
-    void OnOff() {
+    public void OnOff() {
         if (isActive == false) {
             Flashlight.enabled = true;
             isActive = true;
 
             //audioSource.PlayOneShot (soundOn);
         } else if (isActive == true) {
-            Flashlight.enabled = true;
+            Flashlight.enabled = false;
             isActive = false;
         }
     }
