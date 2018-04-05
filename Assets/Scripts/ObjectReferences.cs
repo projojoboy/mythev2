@@ -3,5 +3,5 @@
 public static class ObjectReferences {
 
     public static readonly string domovoi = "Domovoi";
-    public static string player = "VRSimulatorCameraRig";
+    public static string player = "[CameraRig]";
 }
