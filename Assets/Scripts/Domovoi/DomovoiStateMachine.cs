@@ -3,32 +3,35 @@ using UnityEngine.AI;
 
 public class DomovoiStateMachine : MonoBehaviour
 {
-    public GameObject target = null;
-    public Vector3 goal;
+    public Vector3 targetPos;
 
-    private enum _eStates { Walk, Idle }
+    private enum _eStates { Walk, Idle, Break }
     private NavMeshAgent _agent;
-    private DomovoiController _domovoiController;
-    private bool _targetReached = false;
-    private float _targetReachedTimer;
+
+    private static DomovoiStateMachine _instance;
+    public static DomovoiStateMachine Instance
+    {
+        get { return _instance; }
+    }
 
     [SerializeField] private _eStates _state = _eStates.Walk;
-    [SerializeField] private float _goalRange = 5f;
-    [SerializeField] private float _targetReachedTime;
+    [SerializeField] private bool _debug = false;
+    [SerializeField] private float _targetRange = 5f;
+    [SerializeField] private float _breakTime = 5f;
+    [SerializeField] private float _waitForBreakTime = 10f;
 
     private void Awake()
     {
+        if (_instance == null) _instance = this;
+
         _agent = GetComponent<NavMeshAgent>();
-        _domovoiController = GetComponent<DomovoiController>();
-
-        _targetReachedTimer = _targetReachedTime * Time.deltaTime;
-
-        InvokeRepeating("StateMachine", 0f, 1f);
     }
 
     private void Start()
     {
-        _domovoiController.NextRandomTarget();
+        DomovoiController.Instance.NextRandomTarget();
+
+        InvokeRepeating("StateMachine", 0f, 1f);
     }
 
     private void StateMachine()
@@ -36,50 +39,46 @@ public class DomovoiStateMachine : MonoBehaviour
         switch (_state)
         {
             case _eStates.Walk:
-                // Check if player is within range
-                _domovoiController.Target(GameObject.Find(ObjectReferences.player));
-                // Change nav mesh agent destination
-                if (target == null) _agent.destination = goal;
-                else _agent.destination = target.transform.position;
-                // Get a next random target to follow after you reach the target destination
-                if (Vector3.Distance(transform.position, goal) <= _goalRange && target == null) _domovoiController.NextRandomTarget();
-                // Set target to null after the Domovoi reached the target destination and waited for some time
-                if (target != null)
-                {
-                    if (Vector3.Distance(transform.position, target.transform.position) <= _goalRange && !_targetReached)
-                    {
-                        _targetReached = true;
-                    }
-                    if (_targetReached)
-                    {
-                        if (_targetReachedTimer > 0f)
-                        {
-                            // Timer counting down
-                            _targetReachedTimer--;
-                        }
-                        else
-                        {
-                            // After the timer is done
-                            target = null;
-                            _targetReachedTimer = _targetReachedTime * Time.deltaTime;
-                            _targetReached = false;
-                        }
-                    }
-                }
-                // Check if the domovoi needs to take a break
-                if (Mathf.Floor(Random.Range(0, 10)) == 1) {
-                    _state = _eStates.Idle;
-                }
+                Walk();
+                if (!IsInvoking("BreakStart")) Invoke("BreakStart", _waitForBreakTime);
                 break;
             case _eStates.Idle:
                 // Change nav mesh agent destination to itself
                 _agent.destination = gameObject.transform.position;
-
-                if (Mathf.Floor(Random.Range(0, 5)) == 1)
-                {
-                    _state = _eStates.Walk;
-                }
                 break;
+            case _eStates.Break:
+                if (!IsInvoking("BreakEnd")) Invoke("BreakEnd", _breakTime);
+                break;
+        }
+    }
+
+    private bool ReachedTargetDestination()
+    {
+        if (Vector3.Distance(transform.position, targetPos) <= _targetRange) return true;
+        return false;
+    }
+
+    private void BreakStart()
+    {
+        if (_debug) Debug.Log("Domovoi is taking a break");
+        _agent.Stop();
+        _state = _eStates.Break;
+    }
+
+    private void BreakEnd()
+    {
+        _state = _eStates.Walk;
+        _agent.Resume();
+    }
+
+    private void Walk()
+    {
+        // Change nav mesh agent destination
+        if (targetPos != null) _agent.destination = targetPos;
+        // Get a next random target to follow after you reach the target destination
+        if (ReachedTargetDestination())
+        {
+            DomovoiController.Instance.NextRandomTarget();
         }
     }
 }

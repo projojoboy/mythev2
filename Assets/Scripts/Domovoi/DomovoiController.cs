@@ -4,7 +4,11 @@ public class DomovoiController : MonoBehaviour {
 
     public float _seeingRange;
 
-    private DomovoiStateMachine _domovoiStateMachine;
+    private static DomovoiController _instance;
+    public static DomovoiController Instance
+    {
+        get { return _instance; }
+    }
 
     [SerializeField] private Vector3[] _pathArray;
     [SerializeField] private bool _debug = false;
@@ -13,7 +17,7 @@ public class DomovoiController : MonoBehaviour {
 
     private void Awake()
     {
-        _domovoiStateMachine = GetComponent<DomovoiStateMachine>();
+        if (_instance == null) _instance = this;
     }
 
     public void Target(GameObject target)
@@ -22,7 +26,7 @@ public class DomovoiController : MonoBehaviour {
         if (distance <= _hearingRange)
         {
             if (_debug) Debug.Log("Changed Domovoi target to: " + target);
-            _domovoiStateMachine.target = target;
+            DomovoiStateMachine.Instance.targetPos = target.transform.position;
             return;
         }
         if (_debug) Debug.Log("The Domovoi couldn't hear this object: " + target);
@@ -30,21 +34,18 @@ public class DomovoiController : MonoBehaviour {
 
     public void NextRandomTarget()
     {
-        _domovoiStateMachine.target = null;
-        _domovoiStateMachine.goal = GetRandomTarget();
-        if (_debug) Debug.Log("Domovoi is moving towards: " + _domovoiStateMachine.goal);
+        DomovoiStateMachine.Instance.targetPos = GetRandomTargetPos();
+        if (_debug) Debug.Log("Domovoi is moving towards: " + DomovoiStateMachine.Instance.targetPos);
     }
 
-    private Vector3 GetRandomTarget () { return _pathArray[Random.Range(0, _pathArray.Length)]; }
+    private Vector3 GetRandomTargetPos() { return _pathArray[Random.Range(0, _pathArray.Length)]; }
 
     private void OnDrawGizmos()
     {
         if (!_drawGizmos) return;
 
-        _domovoiStateMachine = gameObject.GetComponent<DomovoiStateMachine>();
-
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_domovoiStateMachine.goal, 0.3f);
+        if (Application.isPlaying) Gizmos.DrawSphere(DomovoiStateMachine.Instance.targetPos, 0.3f);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, _hearingRange);
 
