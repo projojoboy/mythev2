@@ -14,7 +14,7 @@ public class Loot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lc = GameObject.Find("GameController").GetComponent<LootController>();
-        currentParticle = particle500;
+        currentParticle = particle50;
         CheckValue();
 	}
 
@@ -22,15 +22,14 @@ public class Loot : MonoBehaviour {
     {
         if(coll.tag == "Moneybag")
         {
-            Debug.Log("Collision");
             lc.AddLootPoints(lootValue);
             Instantiate(currentParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
     void CheckValue()
     {
-        Debug.Log("Start");
         if(lootValue <= 50 || lootValue >= 51 && lootValue <= 75)
         {
             lootValue = 50;
@@ -56,6 +55,5 @@ public class Loot : MonoBehaviour {
             lootValue = 500;
             currentParticle = particle500;
         }
-        Debug.Log("Stop");
     }
 }
