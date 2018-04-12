@@ -1,26 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class DomovoiStateMachine : MonoBehaviour
 {
+    public GameObject target = null;
+    public Vector3 goal;
 
     private enum _eStates { Walk, Idle }
-    private _eStates _state = _eStates.Walk;
     private NavMeshAgent _agent;
+    private DomovoiController _domovoiController;
+    private bool _targetReached = false;
+    private float _targetReachedTimer;
 
-    [SerializeField] private Vector3 _goal;
-    [SerializeField] private GameObject _target = null;
+    [SerializeField] private _eStates _state = _eStates.Walk;
+    [SerializeField] private float _goalRange = 5f;
+    [SerializeField] private float _targetReachedTime;
+
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _domovoiController = GetComponent<DomovoiController>();
+
+        _targetReachedTimer = _targetReachedTime * Time.deltaTime;
+
+        InvokeRepeating("StateMachine", 0f, 1f);
+    }
 
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        StateMachine();
+        _domovoiController.NextRandomTarget();
     }
 
     private void StateMachine()
@@ -28,23 +36,50 @@ public class DomovoiStateMachine : MonoBehaviour
         switch (_state)
         {
             case _eStates.Walk:
-                if (_target == null) _agent.destination = _goal;
-                else _agent.destination = _target.transform.position;
+                // Check if player is within range
+                _domovoiController.Target(GameObject.Find(ObjectReferences.player));
+                // Change nav mesh agent destination
+                if (target == null) _agent.destination = goal;
+                else _agent.destination = target.transform.position;
+                // Get a next random target to follow after you reach the target destination
+                if (Vector3.Distance(transform.position, goal) <= _goalRange && target == null) _domovoiController.NextRandomTarget();
+                // Set target to null after the Domovoi reached the target destination and waited for some time
+                if (target != null)
+                {
+                    if (Vector3.Distance(transform.position, target.transform.position) <= _goalRange && !_targetReached)
+                    {
+                        _targetReached = true;
+                    }
+                    if (_targetReached)
+                    {
+                        if (_targetReachedTimer > 0f)
+                        {
+                            // Timer counting down
+                            _targetReachedTimer--;
+                        }
+                        else
+                        {
+                            // After the timer is done
+                            target = null;
+                            _targetReachedTimer = _targetReachedTime * Time.deltaTime;
+                            _targetReached = false;
+                        }
+                    }
+                }
+                // Check if the domovoi needs to take a break
+                if (Mathf.Floor(Random.Range(0, 10)) == 1) {
+                    _state = _eStates.Idle;
+                }
                 break;
             case _eStates.Idle:
+                // Change nav mesh agent destination to itself
+                _agent.destination = gameObject.transform.position;
 
+                if (Mathf.Floor(Random.Range(0, 5)) == 1)
+                {
+                    _state = _eStates.Walk;
+                }
                 break;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_goal, 0.2f);
-    }
-
-    public void Target(GameObject target)
-    {
-        _target = target;
     }
 }
