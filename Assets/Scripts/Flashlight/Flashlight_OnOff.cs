@@ -2,30 +2,38 @@
 {
     using UnityEngine;
 
+    public class Flashlight_OnOff : VRTK_InteractableObject
+    {
 
-    public class Flashlight_OnOff : VRTK_InteractableObject {
-	    public Light Flashlight;
-	    //public AudioSource audioSource;
+        public GameObject Flashlight;
+        //public AudioSource audioSource;
 
-	    //public AudioClip soundOn;
-	    //public AudioClip soundOff;
-	    private bool isActive = true;
-	    public Texture Active;
+        //public AudioClip soundOn;
+        //public AudioClip soundOff;
+        private bool isActive = true;
+        public Texture Active;
 
         public override void StartUsing(VRTK_InteractUse usingObject)
         {
-	        base.StartUsing(usingObject);
+            base.StartUsing(usingObject);
+            ToggleFlash();
+        }
 
-            if (isActive == false) {
-			    //audioSource.PlayOneShot(soundOff);
-			    Flashlight.enabled = true;
-			    isActive = true;
+        private void ToggleFlash()
+        {
+            if (isActive == false)
+            {
+                //audioSource.PlayOneShot(soundOff);
+                Flashlight.SetActive(true);
+                isActive = true;
 
-			    //audioSource.PlayOneShot (soundOn);
-		    } else if (isActive == true) {
-			    Flashlight.enabled = true;
-			    isActive = false;
-		    }
-	    }
-    }   
+                //audioSource.PlayOneShot (soundOn);
+            }
+            else if (isActive == true)
+            {
+                Flashlight.SetActive(false);
+                isActive = false;
+            }
+        }
+    }
 }
