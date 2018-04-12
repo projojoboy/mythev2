@@ -1,24 +1,21 @@
-﻿using System.Collections;
+﻿namespace VRTK.Examples{
+	
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
-public class Flashlight_OnOff : MonoBehaviour {
+
+public class Flashlight_OnOff : VRTK_InteractableObject {
 	public Light Flashlight;
 	//public AudioSource audioSource;
 
 	//public AudioClip soundOn;
 	//public AudioClip soundOff;
-	private bool isActive;
+	private bool isActive = true;
 	public Texture Active;
 
-
-
-	void Start () {
-		
-		isActive = true;
-	}
-	void OnOff (object sender, ClickedEventArgs e){
+		public override void  StartUsing(VRTK_InteractUse usingObject){
+			base.StartUsing(usingObject);
 		if (isActive == false) {
 			//audioSource.PlayOneShot(soundOff);
 			Flashlight.enabled = true;
@@ -34,3 +31,4 @@ public class Flashlight_OnOff : MonoBehaviour {
     
 	}
 }   
+}
