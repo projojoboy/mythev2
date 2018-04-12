@@ -24,7 +24,7 @@ public class Tilling : MonoBehaviour
         _currentScale = transform.localScale;
         var mesh = GetMesh();
         mesh.uv = SetupUvMap(mesh.uv);
-        mesh.name = "Cube_Test";
+        //mesh.name = "Cube_Test";
 
         if (GetComponent<Renderer>().sharedMaterial.mainTexture.wrapMode != TextureWrapMode.Repeat)
         {
