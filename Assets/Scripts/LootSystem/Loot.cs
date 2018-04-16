@@ -13,7 +13,7 @@ public class Loot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        lc = GameObject.Find("GameController").GetComponent<LootController>();
+        lc = GameObject.Find("Moneybag").GetComponent<LootController>();
         currentParticle = particle50;
         CheckValue();
 	}
