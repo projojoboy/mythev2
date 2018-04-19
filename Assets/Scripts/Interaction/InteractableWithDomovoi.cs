@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class InteractableWithDomovoi : MonoBehaviour {
-
+public class InteractableWithDomovoi : MonoBehaviour
+{
     [SerializeField] private bool _debug = false;
 
     private void OnCollisionEnter(Collision collision)

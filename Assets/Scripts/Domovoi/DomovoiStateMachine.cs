@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
 
 public class DomovoiStateMachine : MonoBehaviour
 {
-    public Vector3 targetPos;
-
-    private enum _eStates { Walk, Idle, Break }
+    public enum _eStates { SeekPlayer, Idle, Break, FollowPlayer, KillPlayer }
     private NavMeshAgent _agent;
 
     private static DomovoiStateMachine _instance;
@@ -14,11 +13,13 @@ public class DomovoiStateMachine : MonoBehaviour
         get { return _instance; }
     }
 
-    [SerializeField] private _eStates _state = _eStates.Walk;
     [SerializeField] private bool _debug = false;
-    [SerializeField] private float _targetRange = 5f;
-    [SerializeField] private float _breakTime = 5f;
-    [SerializeField] private float _waitForBreakTime = 10f;
+
+    [SerializeField] State currentState;
+    State seekState;
+    State breakState;
+    State followPlayerState;
+    State killPlayerState;
 
     private void Awake()
     {
@@ -29,56 +30,44 @@ public class DomovoiStateMachine : MonoBehaviour
 
     private void Start()
     {
-        DomovoiController.Instance.NextRandomTarget();
+        seekState = GetComponent<SeekState>();
+        breakState = GetComponent<BreakState>();
+        followPlayerState = GetComponent<FollowPlayerState>();
+        killPlayerState = GetComponent<KillPlayerState>();
 
-        InvokeRepeating("StateMachine", 0f, 1f);
+        ChangeState(_eStates.SeekPlayer);
     }
 
-    private void StateMachine()
+    private IEnumerator StateMachine()
     {
-        switch (_state)
+        currentState.StateEnter();
+
+        while (currentState.Reason())
         {
-            case _eStates.Walk:
-                Walk();
-                if (!IsInvoking("BreakStart")) Invoke("BreakStart", _waitForBreakTime);
-                break;
-            case _eStates.Idle:
-                // Change nav mesh agent destination to itself
-                _agent.destination = gameObject.transform.position;
+            currentState.StateUpdate();
+            yield return null;
+        }
+
+        currentState.StateLeave();
+    }
+
+    public void ChangeState(_eStates newState)
+    {
+        switch (newState)
+        {
+            case _eStates.SeekPlayer:
+                currentState = seekState;
                 break;
             case _eStates.Break:
-                if (!IsInvoking("BreakEnd")) Invoke("BreakEnd", _breakTime);
+                currentState = breakState;
+                break;
+            case _eStates.FollowPlayer:
+                currentState = followPlayerState;
+                break;
+            case _eStates.KillPlayer:
+                currentState = killPlayerState;
                 break;
         }
-    }
-
-    private bool ReachedTargetDestination()
-    {
-        if (Vector3.Distance(transform.position, targetPos) <= _targetRange) return true;
-        return false;
-    }
-
-    private void BreakStart()
-    {
-        if (_debug) Debug.Log("Domovoi is taking a break");
-        _agent.Stop();
-        _state = _eStates.Break;
-    }
-
-    private void BreakEnd()
-    {
-        _state = _eStates.Walk;
-        _agent.Resume();
-    }
-
-    private void Walk()
-    {
-        // Change nav mesh agent destination
-        if (targetPos != null) _agent.destination = targetPos;
-        // Get a next random target to follow after you reach the target destination
-        if (ReachedTargetDestination())
-        {
-            DomovoiController.Instance.NextRandomTarget();
-        }
+        StartCoroutine(StateMachine());
     }
 }

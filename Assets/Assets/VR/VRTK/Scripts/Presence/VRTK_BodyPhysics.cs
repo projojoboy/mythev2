@@ -1013,6 +1013,7 @@ namespace VRTK
             {
                 foundCollider = parent.AddComponent<CapsuleCollider>();
                 foundCollider.radius = setRadius;
+                parent.AddComponent<Player>();
             }
 
             return foundCollider;
