@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour {
     [Header("Main Menu")]
     [SerializeField] private GameObject quitConfirmationScreen;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject howToPlay;
     //[Header("Death Screen")]
 
     //Main Menu
@@ -26,10 +27,24 @@ public class MenuController : MonoBehaviour {
     {
         if (quit)
             Application.Quit();
-        else if (!quit)
+        else
         {
             quitConfirmationScreen.SetActive(false);
             mainMenu.SetActive(true);
+        }
+    }
+
+    public void HowToPlayShow(bool show)
+    {
+        if (show)
+        {
+            mainMenu.SetActive(false);
+            howToPlay.SetActive(true);
+        }
+        else
+        {
+            mainMenu.SetActive(true);
+            howToPlay.SetActive(false);
         }
     }
 
