@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Zaklamp
+  m_Name: Zaklamp 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f02f01a4505fa994785a6ce695d283a7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8dcf8fea487a46746a15bbc02f77d93c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -35,15 +35,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 0d7b84ace6f0d0649bcee22575da8c88, type: 3}
+        m_Texture: {fileID: 2800000, guid: e01c853e206bb3440a0e301c834b6250, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2decb2f3e17ef614097e28c6bf021ae9, type: 3}
+        m_Texture: {fileID: 2800000, guid: bf45f660375fc0a48be0b6b7da724bde, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 0d7b84ace6f0d0649bcee22575da8c88, type: 3}
+        m_Texture: {fileID: 2800000, guid: ebf4104bc9ae86943ad6fa0fe788fa17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

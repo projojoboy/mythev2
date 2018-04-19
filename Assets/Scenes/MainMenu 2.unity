@@ -1835,8 +1835,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121384343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.366, y: -0.93, z: 1.442}
-  m_LocalScale: {x: 7.476306, y: 0.06128675, z: 6.8382063}
+  m_LocalPosition: {x: 5.45142, y: -0.93, z: 1.442}
+  m_LocalScale: {x: 7.3054266, y: 0.06128675, z: 6.8382063}
   m_Children: []
   m_Father: {fileID: 1932308025}
   m_RootOrder: 42
@@ -7607,12 +7607,12 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 532
+      value: 733
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -7622,7 +7622,7 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4965719855998708, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8365,10 +8365,10 @@ GameObject:
   - component: {fileID: 939986124}
   - component: {fileID: 939986130}
   - component: {fileID: 939986129}
-  - component: {fileID: 939986128}
   - component: {fileID: 939986127}
   - component: {fileID: 939986126}
   - component: {fileID: 939986125}
+  - component: {fileID: 939986128}
   m_Layer: 0
   m_Name: Zaklamp
   m_TagString: Untagged
@@ -8439,7 +8439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  touchHighlightColor: {r: 0.90344834, g: 1, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
@@ -8458,21 +8458,22 @@ MonoBehaviour:
   allowedUseControllers: 0
   usingState: 0
   Flashlight: {fileID: 130000651}
-  Active: {fileID: 0}
---- !u!136 &939986128
-CapsuleCollider:
+  active: {fileID: 0}
+  notActive: {fileID: 0}
+--- !u!64 &939986128
+MeshCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 136494579770388440, guid: 98eef2eadd378a041b02bc014768407e,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939986123}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.07108283
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0.0075001717, y: 0, z: -0.01936388}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 5e7c506aea9c8d345a3c5d146c383090, type: 3}
 --- !u!54 &939986129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10841,7 +10842,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c75a8369e0407744082a1afacde358bb, type: 2}
+  - {fileID: 2100000, guid: 26e4a3a52b6df8849afaff808b2c5b9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
