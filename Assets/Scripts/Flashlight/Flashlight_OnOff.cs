@@ -1,53 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Valve.VR.InteractionSystem;
+﻿namespace VRTK.Examples
+{
+    using UnityEngine;
 
-public class Flashlight_OnOff : MonoBehaviour {
-    /*private SteamVR_Controller.Device device;
-	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }*/
-    private SteamVR_TrackedController device;
-    public Light Flashlight;
-    //public AudioSource audioSource;
+    public class Flashlight_OnOff : VRTK_InteractableObject
+    {
+        private bool isActive = true;
 
-    //public AudioClip soundOn;
-    //public AudioClip soundOff;
+        [SerializeField] GameObject Flashlight;
+        [SerializeField] Texture Active;
 
-    private bool isActive;
+        public override void StartUsing(VRTK_InteractUse usingObject)
+        {
+            base.StartUsing(usingObject);
+            ToggleFlash();
+        }
 
-
-    void Start() {
-        device = GetComponent<SteamVR_TrackedController>();
-        isActive = true;
-        //device.TriggerClicked += OnOff;
-    }
-    void OnOff() {
-        if (isActive == false) {
-            Flashlight.enabled = true;
-            isActive = true;
-
-            //audioSource.PlayOneShot (soundOn);
-        } else if (isActive == true) {
-            Flashlight.enabled = true;
-            isActive = false;
+        private void ToggleFlash()
+        {
+            if (isActive == false)
+            {
+                Flashlight.SetActive(true);
+                isActive = true;
+            }
+            else if (isActive == true)
+            {
+                Flashlight.SetActive(false);
+                isActive = false;
+            }
         }
     }
 }
-
-	/*void Update () {
-		if (device.GetHairTrigger()){
-			Debug.Log ("Up");
-			if (isActive == false) {
-				Flashlight.enabled = true;
-				isActive = true;
-
-				//audioSource.PlayOneShot (soundOn);
-			} else if (isActive == true) {
-				Flashlight.enabled = true;
-				isActive = false;
-
-				//audioSource.PlayOneShot (soundOff);
-			}
-		}
-	}
-}*/
