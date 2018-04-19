@@ -5,20 +5,21 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour {
 
+    [Header("Main Menu")]
     [SerializeField] private GameObject quitConfirmationScreen;
     [SerializeField] private GameObject mainMenu;
+    //[Header("Death Screen")]
 
+    //Main Menu
     public void ExitGame()
     {
         quitConfirmationScreen.SetActive(true);
         mainMenu.SetActive(false);
     }
 
-    public void StartGame()
+    public void LoadScene(int SceneIndexNumber)
     {
-        //Load scene(moet nog scene hebben)
-        //SceneManager.LoadScene();
-        Debug.Log("StartGame!");
+        SceneManager.LoadScene(SceneIndexNumber);
     }
 
     public void ConfirmQuit(bool quit)
@@ -30,5 +31,11 @@ public class MenuController : MonoBehaviour {
             quitConfirmationScreen.SetActive(false);
             mainMenu.SetActive(true);
         }
+    }
+
+    public void Restart()
+    {
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.buildIndex);
     }
 }
