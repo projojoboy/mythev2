@@ -3,8 +3,10 @@ using UnityEngine.AI;
 
 public class SeekState : State
 {
-    [SerializeField] private Vector3 targetPos;
+    private Vector3 targetPos;
     private NavMeshAgent _agent;
+    private Animator _animator;
+    [SerializeField] private bool _isFollowingAudible = false;
     [SerializeField] private float _targetRange = 5f;
     [SerializeField] private Vector3Path _pathComponent;
 
@@ -15,6 +17,7 @@ public class SeekState : State
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     public override bool Reason()
@@ -32,6 +35,9 @@ public class SeekState : State
     {
         //base.StateEnter();
         timer = stateTimer;
+        _isFollowingAudible = false;
+        _animator.Play("Walk");
+        NextRandomTarget();
     }
 
     public override void StateUpdate()
@@ -41,7 +47,14 @@ public class SeekState : State
         // Get a next random target to follow after you reach the target destination
         if (ReachedTargetDestination())
         {
-            NextRandomTarget();
+            if (_isFollowingAudible)
+            {
+                timer = 0;
+            }
+            else
+            {
+                NextRandomTarget();
+            }
         }
     }
 
@@ -57,6 +70,8 @@ public class SeekState : State
     }
 
     public void SetTargetPos(Vector3 newTargetPos) { targetPos = newTargetPos; }
+
+    public void FollowingAudible() { Debug.Log("changing audible"); _isFollowingAudible = true; }
 
     private void OnDrawGizmos()
     {
