@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/MATTerials/Models/Dresser/Laadje_lambert1_MetallicSmoothness.png.meta
+guid: 47b85892bab098e48883ba3fae03a220
+timeCreated: 1521709750
+=======
 guid: 6379ad1959baba34da005b61ed4d47ae
 timeCreated: 1524237724
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3:Assets/Matterial/Sleutel_1001_AlbedoTransparency.png.meta
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

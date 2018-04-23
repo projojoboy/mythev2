@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/MATTerials/Mat_Yellow.mat.meta
+guid: d5261462fbbe62640a106963db7de030
+timeCreated: 1520854794
+=======
 guid: 6679ba3f270edb9498ea3906cb65bc6e
 timeCreated: 1524237790
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3:Assets/Matterial/sleutel.mat.meta
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}

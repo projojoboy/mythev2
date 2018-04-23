@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/Models/Zaklamp/Zaklamp_Model.fbx.meta
+guid: 38cd187c61a18434c8cb481cc266acb4
+timeCreated: 1522065783
+=======
 guid: 894be157482410649ae05479ecc03f34
 timeCreated: 1524237726
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3:Assets/Matterial/Sleutel.fbx.meta
 licenseType: Free
 ModelImporter:
   serializedVersion: 22

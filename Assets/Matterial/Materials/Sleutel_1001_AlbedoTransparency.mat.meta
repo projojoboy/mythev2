@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/MATTerials/Mat_Green.mat.meta
+guid: 17320e74ed920b942b87f878379bb1c4
+timeCreated: 1520854779
+=======
 guid: cab3fb896d341e54f987b6072d533d83
 timeCreated: 1524237759
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3:Assets/Matterial/Materials/Sleutel_1001_AlbedoTransparency.mat.meta
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}

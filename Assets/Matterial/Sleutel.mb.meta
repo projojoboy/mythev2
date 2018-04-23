@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Assets/Models/asbak.fbx.meta
+guid: a9d5308d199a5324f907e5bc5503ce87
+timeCreated: 1521724266
+=======
 guid: d1ae59d4d07b07f448180d06f3c4f526
 timeCreated: 1524237726
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3:Assets/Matterial/Sleutel.mb.meta
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
