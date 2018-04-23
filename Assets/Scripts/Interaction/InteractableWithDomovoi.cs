@@ -10,6 +10,7 @@ public class InteractableWithDomovoi : MonoBehaviour
         if (collision.relativeVelocity.magnitude > 4)
         {
             DomovoiController.Instance.Target(gameObject);
+            DomovoiController.Instance.GetComponent<SeekState>().FollowingAudible();
             if (_debug) Debug.Log("Magnitude hit");
         }
     }

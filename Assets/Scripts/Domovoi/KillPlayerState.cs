@@ -6,18 +6,21 @@ public class KillPlayerState : State
 {
     public UnityEvent _activateOnDeath;
 
+    private Animator _animator;
     private NavMeshAgent _agent;
     private float stateTimer = 5f;
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
         if (_activateOnDeath == null) _activateOnDeath = new UnityEvent();
     }
 
     public override void StateEnter()
     {
-        _agent.Stop();
+        _agent.speed = 0;
+        _animator.Play("Attack");
     }
 
     public override bool Reason()
@@ -34,6 +37,6 @@ public class KillPlayerState : State
 
     public override void StateUpdate()
     {
-        // Break animation
+        _agent.destination = Player.Instance.transform.position;
     }
 }

@@ -6,13 +6,20 @@
     {
         private bool isActive = true;
 
+        private Renderer ren;
+        private AudioSource audioS;
+
         [SerializeField] GameObject Flashlight;
-        [SerializeField] Texture Active;
+        [SerializeField] Texture active, notActive;
+        [SerializeField] AudioClip click;
 
         public override void StartUsing(VRTK_InteractUse usingObject)
         {
             base.StartUsing(usingObject);
             ToggleFlash();
+            ren = GetComponent<Renderer>();
+            audioS = GetComponent<AudioSource>();
+            audioS.clip = click;
         }
 
         private void ToggleFlash()
@@ -21,11 +28,15 @@
             {
                 Flashlight.SetActive(true);
                 isActive = true;
+                ren.material.mainTexture = active;
+                audioS.Play();
             }
             else if (isActive == true)
             {
                 Flashlight.SetActive(false);
                 isActive = false;
+                ren.material.mainTexture = notActive;
+                audioS.Play();
             }
         }
     }

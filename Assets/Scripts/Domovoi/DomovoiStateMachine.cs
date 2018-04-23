@@ -70,4 +70,6 @@ public class DomovoiStateMachine : MonoBehaviour
         }
         StartCoroutine(StateMachine());
     }
+
+    public State GetState() { return currentState; }
 }
