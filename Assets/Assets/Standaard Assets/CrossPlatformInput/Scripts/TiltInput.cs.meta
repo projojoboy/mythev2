@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3d5367253a1ff0748bba549d988fcf36
+=======
+guid: ee640fcb7d75ca34784ca6dff08f4ca1
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3
 labels:
 - Not
 - Fully

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2b3d9cdb20ef45741a8664c2f678594b
+=======
+guid: b0ecb9a977bf01b4c8c09f68f0e64851
+>>>>>>> 3c361b258b4f6f560525f78d22f6ccd3d05021c3
 timeCreated: 1524163508
 licenseType: Free
 AudioImporter:

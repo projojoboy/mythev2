@@ -30,7 +30,11 @@ public class DomovoiController : MonoBehaviour
 
     public void FollowPlayer()
     {
-        DomovoiStateMachine.Instance.ChangeState(DomovoiStateMachine._eStates.FollowPlayer);
+        Debug.Log("Following player");
+        if (DomovoiStateMachine.Instance.GetState() != GetComponent<KillPlayerState>())
+        {
+            DomovoiStateMachine.Instance.ChangeState(DomovoiStateMachine._eStates.FollowPlayer);
+        }
     }
 
     private void OnDrawGizmos()
