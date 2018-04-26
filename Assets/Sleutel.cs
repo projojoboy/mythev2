@@ -9,7 +9,7 @@ public class Sleutel : MonoBehaviour {
 	{
 		if (other.tag == "Sleutelgat") {
 			Debug.Log ("hoi");
-			SceneManager.LoadScene ("winscene");
+			SceneManager.LoadScene (3);
 		}
 	
 	}
