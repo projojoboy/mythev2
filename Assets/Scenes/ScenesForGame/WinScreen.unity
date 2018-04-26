@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469913150}
   m_Layer: 0
-  m_Name: DeathScreenCanvas
+  m_Name: WinScreenCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,7 +1064,7 @@ Prefab:
     - target: {fileID: 224105253739690468, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224105253739690468, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1074,7 +1074,7 @@ Prefab:
     - target: {fileID: 224105253739690468, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224143178177383492, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1094,7 +1094,7 @@ Prefab:
     - target: {fileID: 224143178177383492, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224143178177383492, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1104,7 +1104,7 @@ Prefab:
     - target: {fileID: 224143178177383492, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224365472277574622, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1124,7 +1124,7 @@ Prefab:
     - target: {fileID: 224365472277574622, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224365472277574622, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1134,7 +1134,7 @@ Prefab:
     - target: {fileID: 224365472277574622, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224240256829808178, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1154,7 +1154,7 @@ Prefab:
     - target: {fileID: 224240256829808178, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224240256829808178, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1164,7 +1164,7 @@ Prefab:
     - target: {fileID: 224240256829808178, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224977680207033814, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1184,7 +1184,7 @@ Prefab:
     - target: {fileID: 224977680207033814, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224977680207033814, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1194,7 +1194,7 @@ Prefab:
     - target: {fileID: 224977680207033814, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224917177632986110, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1214,7 +1214,7 @@ Prefab:
     - target: {fileID: 224917177632986110, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224917177632986110, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1224,7 +1224,7 @@ Prefab:
     - target: {fileID: 224917177632986110, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1244,7 +1244,7 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -1254,7 +1254,7 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
@@ -1651,8 +1651,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1479681889}
-        m_MethodName: LoadMainMenu
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

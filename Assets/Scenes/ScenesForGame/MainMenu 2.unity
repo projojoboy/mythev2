@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0025859047, g: 0.0023375456, b: 0.0014429099, a: 1}
+  m_IndirectSpecularColor: {r: 0.002431584, g: 0.0023413324, b: 0.0013223633, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5650,7 +5650,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 1
           m_BoolArgument: 0
@@ -7624,7 +7624,7 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 532
+      value: 816
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -7644,6 +7644,18 @@ Prefab:
     - target: {fileID: 4965719855998708, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835646518475062, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835646518475062, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835646518475062, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}

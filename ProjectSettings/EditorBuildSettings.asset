@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenesForGame/MainMenu 2.unity
     guid: 55b77fe0c4a21f242bb1c7d0ba01b7ef
   - enabled: 1
+    path: Assets/level.unity
+    guid: c89dc6ebda241fa40b2e8eaf901b1c0d
+  - enabled: 1
     path: Assets/Scenes/ScenesForGame/LoseScreen.unity
     guid: 38566459259790a4f8a3e77a719d7e67
   - enabled: 1

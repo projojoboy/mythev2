@@ -37,4 +37,10 @@ public class FollowPlayerState : State
         if (Vector3.Distance(transform.position, Player.Instance.transform.position) <= _playerRange) return true;
         return false;
     }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(Player.Instance.transform.position, _playerRange);
+    }*/
 }
