@@ -17,6 +17,7 @@ public class BreakState : State
     {
         _agent.Stop();
         _animator.Play("Idle");
+        stateTimer = 5f;
     }
 
     public override bool Reason()
