@@ -8,6 +8,8 @@ public class DomovoiController : MonoBehaviour
         get { return _instance; }
     }
 
+    public float _moveSpeed = 1f;
+
     [SerializeField] private bool _debug = false;
     [SerializeField] private float _hearingRange;
 
@@ -30,7 +32,6 @@ public class DomovoiController : MonoBehaviour
 
     public void FollowPlayer()
     {
-        Debug.Log("Following player");
         if (DomovoiStateMachine.Instance.GetState() != GetComponent<KillPlayerState>())
         {
             DomovoiStateMachine.Instance.ChangeState(DomovoiStateMachine._eStates.FollowPlayer);

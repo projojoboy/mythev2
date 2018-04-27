@@ -38,6 +38,7 @@ public class SeekState : State
         _isFollowingAudible = false;
         _animator.Play("Walk");
         NextRandomTarget();
+        _agent.speed = DomovoiController.Instance._moveSpeed;
     }
 
     public override void StateUpdate()

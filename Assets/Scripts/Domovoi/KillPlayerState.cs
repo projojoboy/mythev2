@@ -10,6 +10,8 @@ public class KillPlayerState : State
     private NavMeshAgent _agent;
     private float stateTimer = 5f;
 
+    [SerializeField] private float _killRange = 4f;
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -21,6 +23,7 @@ public class KillPlayerState : State
     {
         _agent.speed = 0;
         _animator.Play("Attack");
+        stateTimer = 5f;
     }
 
     public override bool Reason()
@@ -28,8 +31,14 @@ public class KillPlayerState : State
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0)
         {
-            Debug.Log("GAME OVER!");
-            _activateOnDeath.Invoke();
+            if (ReachedPlayerDestination())
+            {
+                _activateOnDeath.Invoke();
+            }
+            else
+            {
+                DomovoiStateMachine.Instance.ChangeState(DomovoiStateMachine._eStates.SeekPlayer);
+            }
             return false;
         }
         return true;
@@ -38,5 +47,11 @@ public class KillPlayerState : State
     public override void StateUpdate()
     {
         _agent.destination = Player.Instance.transform.position;
+    }
+
+    private bool ReachedPlayerDestination()
+    {
+        if (Vector3.Distance(transform.position, Player.Instance.transform.position) <= _killRange) return true;
+        return false;
     }
 }
