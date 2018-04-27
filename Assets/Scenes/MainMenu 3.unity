@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0025859047, g: 0.0023375456, b: 0.0014429099, a: 1}
+  m_IndirectSpecularColor: {r: 0.002431584, g: 0.0023413324, b: 0.0013223633, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5633,7 +5633,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 1
           m_BoolArgument: 0
@@ -7607,12 +7607,12 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 532
+      value: 549
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
@@ -7622,7 +7622,7 @@ Prefab:
     - target: {fileID: 224224337536558408, guid: 1322e4dcc0bc61943b15c47a483a356e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4965719855998708, guid: 1322e4dcc0bc61943b15c47a483a356e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8458,7 +8458,9 @@ MonoBehaviour:
   allowedUseControllers: 0
   usingState: 0
   Flashlight: {fileID: 130000651}
-  Active: {fileID: 0}
+  active: {fileID: 0}
+  notActive: {fileID: 0}
+  click: {fileID: 0}
 --- !u!136 &939986128
 CapsuleCollider:
   m_ObjectHideFlags: 0
